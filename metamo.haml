@@ -1,0 +1,31 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"}
+    :css
+      td {
+        -webkit-transition: 2s ease-in-out;
+        -webkit-transform-origin: 50% 50%;
+        font-size: 240%;
+      }
+      
+    :javascript
+      $(function(){
+        $('td').mouseover(function(){
+          var $this = $(this);
+          $this.css('text-shadow', '0 4px #ff0,0 -4px #0ff,4px 0 #f0f,-4px 0 #0f0');
+         
+          var v = $this.text().charCodeAt(0);
+              $this.text(String.fromCharCode(v+1));
+              $this.css('color','#030');
+         });
+      });
+    %title METAMORPHOSE test
+  %body
+    %table
+      %tbody
+      - 20.times do
+        %tr
+        - 30.times do
+          %td ♥
