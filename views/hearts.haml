@@ -1,0 +1,35 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"}
+    :css
+      td {
+        -webkit-transition: 3s ease-in-out;
+        -webkit-transform-origin: 25% 25%;
+        font-size: 150%;
+      }
+      
+    :javascript
+      $(function(){
+        $('td').mouseover(function(){
+          $(this).css('-webkit-transform', 'rotate(1080deg)');
+        
+            if ($(this).text() === "♥") {
+              $(this).text("♡");
+              $(this).css('color','#0f0');
+            }
+            else {
+              $(this).text("♥");
+              $(this).css('color','#f00');
+            };
+        });
+      });
+    %title heart full test
+  %body
+    %table
+      %tbody
+      - 20.times do
+        %tr
+        - 30.times do
+          %td ♥
